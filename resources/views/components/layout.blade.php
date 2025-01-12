@@ -21,17 +21,20 @@
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="shrink-0">
-            <img class="size-8" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            <img class="size-8" src="https://laracasts.com/images/logo/logo-triangle.svg" alt="Your Company">
           </div>
+
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
-              <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-              <a href="/contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+              <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+
+              <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+
+              <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
             </div>
           </div>
         </div>
+
         <div class="hidden md:block">
           <div class="ml-4 flex items-center md:ml-6">
             <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -48,7 +51,7 @@
                 <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Open user menu</span>
-                  <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  <img class="size-8 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg" alt="">
                 </button>
               </div>
             </div>
@@ -83,7 +86,7 @@
       <div class="border-t border-gray-700 pb-3 pt-4">
         <div class="flex items-center px-5">
           <div class="shrink-0">
-            <img class="size-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <img class="size-10 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg" alt="">
           </div>
           <div class="ml-3">
             <div class="text-base/5 font-medium text-white">Tom Cook</div>
@@ -103,12 +106,13 @@
 
   <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
     </div>
   </header>
+
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <!-- Your content -->
+      {{ $slot }}
     </div>
   </main>
 </div>
